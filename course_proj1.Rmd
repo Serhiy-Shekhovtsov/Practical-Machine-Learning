@@ -9,6 +9,7 @@ Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible t
 
 
 ```{r}
+set.seed(6)
 setwd("D:\\Projects\\Education\\Coursera\\Practical Machine Learning\\Course Project\\Practical-Machine-Learning")
 
 # labeled data. contains both X and Y
@@ -78,7 +79,7 @@ model = train(classe~., data=train_data, trControl=train_control,
 ```{r}
 model$finalModel
 ```
-In sample error rate: 1.91
+**In sample** error rate: 2%
 
 Let's now estimate the Out of sample error on our test data
 ```{r}
@@ -87,7 +88,7 @@ predictions <- predict(model, test_data)
 confusionMatrix(predictions, test_data$classe)
 
 ```
-**Out of sample** Accuracy : 98.27%
+**Out of sample** error rate: 2.17% (accuracy: 97.83%)
 
 And finaly generating predictions for target data
 ```{r}
